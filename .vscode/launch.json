@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug current file",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder}/compiled/${fileBasenameNoExtension}.out",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "preLaunchTask": "swift-compile", // This ensures the file is compiled before launching
+        "postDebugTask": "clean-compiled" // This ensures the compiled file is deleted after debugging
+      }
+    ]
+  }
+  

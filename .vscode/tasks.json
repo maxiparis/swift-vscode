@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // Task to compile the current Swift file with debug information
+            "label": "swift-compile",
+            "type": "shell",
+            "command": "swiftc",
+            "args": [
+                "-g",                  // Debug information
+                "${file}",             // Compile the current file
+                "-o",                  // Output option
+                "${workspaceFolder}/compiled/${fileBasenameNoExtension}.out" // Output path
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            // Task to run the current Swift file
+            "label": "swift-run",
+            "type": "shell",
+            "command": "swift ${file}"
+        },
+        {
+            // Task to clean the compiled files
+            "label": "clean-compiled",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "${workspaceFolder}/compiled/*"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
